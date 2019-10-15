@@ -1,0 +1,14 @@
+Version 0.0.1
+- created config.txt
+- Contains mode and server_ip parameters
+    - mode can be set to "server" or "client"
+    - Any text in mode that is not "server" will start the application in client mode
+
+Version 0.0.2
+- Basic Server/Client Response
+    - Client send text to Server, Server replies with same text
+
+Version 0.0.3
+- Client sends file to server
+    - File names are hardcoded
+    - File source/destination have are the same as the script
