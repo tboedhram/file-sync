@@ -12,3 +12,6 @@ Version 0.0.3
 - Client sends file to server
     - File names are hardcoded
     - File source/destination have are the same as the script
+
+Version 0.0.4
+- Client now sends file name to server

@@ -12,7 +12,9 @@ def start(config):
 
     while True:
         client, address = s.accept()
-        received_file = open('received_file.jpg', 'wb')
+        file_name = client.recv(1024)
+        client.send("OK".encode('utf-8'))
+        received_file = open(file_name, 'wb')
         while True:
             data = client.recv(1024)
             received_file.write(data)
