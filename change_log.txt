@@ -15,3 +15,11 @@ Version 0.0.3
 
 Version 0.0.4
 - Client now sends file name to server
+
+Version 0.0.5
+- Server now sends a directory to client
+- File structure is preserved
+- Files that already exist are skipped over
+- Added root_location to config file
+    - When running in server mode, root_location is the directory of files to be copied
+    - When running in client mode, root_location is the directory to download files

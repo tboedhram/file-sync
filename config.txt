@@ -1,2 +1,3 @@
-mode=serve
+mode=server
 server_ip=
+root_location=
