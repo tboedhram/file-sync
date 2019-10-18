@@ -1,3 +1,4 @@
 mode=server
 server_ip=
 root_location=
+ignore_files=

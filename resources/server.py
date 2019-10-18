@@ -11,6 +11,6 @@ def start(config):
 
     while True:
         client, address = s.accept()
-        file_transfer.send_file(client, config['root_location'])
+        file_transfer.send_file(client, config['root_location'], config['ignore_files'])
         client.close()
     s.close()

@@ -1,25 +1,34 @@
-Version 0.0.1
+Version 0.1
 - created config.txt
 - Contains mode and server_ip parameters
     - mode can be set to "server" or "client"
     - Any text in mode that is not "server" will start the application in client mode
 
-Version 0.0.2
+Version 0.2
 - Basic Server/Client Response
     - Client send text to Server, Server replies with same text
 
-Version 0.0.3
+Version 0.3
 - Client sends file to server
     - File names are hardcoded
     - File source/destination have are the same as the script
 
-Version 0.0.4
+Version 0.4
 - Client now sends file name to server
 
-Version 0.0.5
+Version 0.5
 - Server now sends a directory to client
 - File structure is preserved
 - Files that already exist are skipped over
 - Added root_location to config file
     - When running in server mode, root_location is the directory of files to be copied
     - When running in client mode, root_location is the directory to download files
+
+Version 1.0
+- Added ignore_files to config file
+    - These files will be skipped over when the server is looking for files to send
+    - Too skip multiple files, use "||" to separate files
+    - Files should be relative to the location specified in root_location
+- config.txt is now read in with utf-8 encoding
+    - This was done to support utf-8 characters in file names
+- Changed version numbering scheme
