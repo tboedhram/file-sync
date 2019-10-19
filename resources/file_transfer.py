@@ -22,7 +22,7 @@ def get_files_to_send(root_location, prefix, ignored_files):
 def send_file(socket, root_location, ignored_files_string):
     ignored_files = ignored_files_string.split('||')
     files_to_send = get_files_to_send(root_location, '', ignored_files)
-    print(len(files_to_send))
+    print('\nFound ' + str(len(files_to_send)) + ' files to sync\n')
     for file in files_to_send:
         file_path = os.path.join(root_location, file)
         file_to_send = open(file_path, 'rb')
@@ -72,7 +72,7 @@ def receive_file(socket, root_location):
                 while True:
                     try:
                         socket.settimeout(1)
-                        data = socket.recv(1024)
+                        data = socket.recv(4096)
                         if data:
                             received_file.write(data)
                         else:

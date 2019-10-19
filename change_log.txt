@@ -32,3 +32,8 @@ Version 1.0
 - config.txt is now read in with utf-8 encoding
     - This was done to support utf-8 characters in file names
 - Changed version numbering scheme
+
+Version 1.1
+- Increased client receive size from 1024 to 4095
+- Server no longer crashes if client unexpectedly disconnects
+- Added/Modified console messages
