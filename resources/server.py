@@ -11,6 +11,7 @@ def start(config):
 
     while True:
         client, address = s.accept()
+        print('Client Connected\nIP: ' + str(address[0]))
         try:
             file_transfer.send_file(client, config['root_location'], config['ignore_files'])
             print('\nAll files copied to client successfully!')

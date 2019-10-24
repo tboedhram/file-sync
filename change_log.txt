@@ -42,3 +42,11 @@ Version 1.2
 - Client now tries to connect to the server once every hour
 - Client no longer crashes if permission error is thrown
     - The client will display that the error happened then sleep for an hour
+
+Version 1.3
+- Client now only tries to connect to server if the current SSID matches the server_network_ssid in config.txt
+    - NOTE: This is not available on Mac/Linux yet
+- Added server_network_ssid to config file
+    - This should be set to the SSID of the network the server is on
+    - This parameter is only required on the client
+- Added resources/helpers.py to handle os specific operations
