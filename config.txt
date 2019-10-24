@@ -1,4 +1,4 @@
-mode=server
+mode=client
 server_ip=192.168.1.2
-root_location=E:\Music
-ignore_files=Artwork||iTunes\Automatically Add to iTunes||iTunes\Downloads||iTunes\.iTunes Preferences.plist||iTunes\Music\AmaLee\Make My Story - Single\01 Make My Story.m4a||iTunes\Music\Blake Shelton||iTunes\Music\Bon Jovi||iTunes\Music\Chris Tomlin||iTunes\Music\Compilations\Pokémon_ Let_s Go, Pikachu! & Pokémon_ L||iTunes\Music\Compilations\WOW Hits 2012||iTunes\Music\GAME FREAK||iTunes\Music\Israel Houghton||iTunes\Music\NateWantsToBattle\Instrumentals||iTunes\Music\NateWantsToBattle\The Greatest Master\02 2b a Master (feat. Markiplier & Y.m4a||iTunes\Music\NateWantsToBattle\The Greatest Master\03 Pokémon Johto (feat. MatPat).m4a||iTunes\Music\NateWantsToBattle\The Greatest Master\04 What Kind of Pokémon are You_ (fe.m4a||iTunes\Music\NateWantsToBattle\The Greatest Master\05 Viridian City (feat. Arin Hanson).m4a||iTunes\Music\NateWantsToBattle\The Greatest Master\08 Misty.m4a||iTunes\Music\NateWantsToBattle\The Greatest Master\09 Misty (Acoustic).m4a||iTunes\Music\Newsboys||iTunes\Music\Phil Wickham||iTunes\Music\Rend Collective||iTunes\Music\Rhett and Link||iTunes\Music\Shout Praises K!ds||iTunes\Music\TobyMac
+root_location=D:\Music
+ignore_files=

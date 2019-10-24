@@ -37,3 +37,8 @@ Version 1.1
 - Increased client receive size from 1024 to 4095
 - Server no longer crashes if client unexpectedly disconnects
 - Added/Modified console messages
+
+Version 1.2
+- Client now tries to connect to the server once every hour
+- Client no longer crashes if permission error is thrown
+    - The client will display that the error happened then sleep for an hour

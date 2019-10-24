@@ -3,11 +3,11 @@ import resources.file_transfer as file_transfer
 
 
 def start(config):
-    print("Starting File Sync Server")
+    print('Starting File Sync Server')
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.bind((config['server_ip'], 4000))
     s.listen(2)
-    print("File Sync Server Started\n")
+    print('File Sync Server Started\n')
 
     while True:
         client, address = s.accept()
