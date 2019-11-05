@@ -50,3 +50,11 @@ Version 1.3
     - This should be set to the SSID of the network the server is on
     - This parameter is only required on the client
 - Added resources/helpers.py to handle os specific operations
+
+Version 1.4
+- Print messages are now log messages
+- Logs are stored in the logs folder in the root directory.
+- Added resources/logger.py to handle setting up the logger.
+- Changed path splitting
+    - It now uses os.path.split() instead of string.split('\\')
+- Changed string concatenation to string.format()
