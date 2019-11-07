@@ -58,3 +58,11 @@ Version 1.4
 - Changed path splitting
     - It now uses os.path.split() instead of string.split('\\')
 - Changed string concatenation to string.format()
+
+Version 2.0
+- File Sync Program now runs entirely in the background
+- Added an exception catch all to report exceptions that are not accounted for
+    - TODO: GUI notifying uncaught exceptions
+- Updated .gitignore
+    - removed file extensions that aren't used.
+    - added log and test_file directory

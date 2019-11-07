@@ -23,6 +23,9 @@ def start(config):
                 client_logger.warning('File Sync Server Refused Connection')
             except PermissionError:
                 client_logger.error('Cannot copy files to the specified location')
+            except Exception:
+                client_logger.exception('An unhandled exception occurred. Please send server.log to the developer')
+                exit()
             finally:
                 s.close()
         else:

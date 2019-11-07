@@ -1,6 +1,5 @@
-*.db
 *.pyc
-*.pyo
-*.pickle
 
 .idea
+logs
+test_files

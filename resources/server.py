@@ -22,6 +22,9 @@ def start(config):
             server_logger.warning('Client {address} disconnected unexpectedly'.format(address=str(address[0])))
         except ConnectionResetError:
             server_logger.warning('Client {address} disconnected unexpectedly'.format(address=str(address[0])))
+        except Exception:
+            server_logger.exception('An unhandled exception occurred. Please send server.log to the developer')
+            exit()
         finally:
             client.close()
     s.close()
