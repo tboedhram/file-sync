@@ -6,7 +6,7 @@ Current Version: 2.1
 This application automatically syncs files between a server computer and client computers on the same network.
 This application runs entirely in the background after setup.
 
-##Running Application
+## Running Application
 You must have python 3.7+ installed to run this application.  
 To run this application, double click on main.pyw
 
