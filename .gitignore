@@ -1,5 +1,7 @@
 *.pyc
 
+config.txt
+
 .idea
 logs
 test_files

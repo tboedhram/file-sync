@@ -66,3 +66,9 @@ Version 2.0
 - Updated .gitignore
     - removed file extensions that aren't used.
     - added log and test_file directory
+
+Version 2.1
+- Added configuration GUI
+    - A user no longer needs to edit the config.txt to setup the File Sync Server/Client
+    - This GUI only appears if no config.txt is found
+- config.txt is now generated on first run
