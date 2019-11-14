@@ -72,3 +72,11 @@ Version 2.1
     - A user no longer needs to edit the config.txt to setup the File Sync Server/Client
     - This GUI only appears if no config.txt is found
 - config.txt is now generated on first run
+
+Version 2.2
+- Added value checking during configuration setup
+    - Checks if Server IP Address is a valid IPv4 Address
+    - Checks if Root Location is a valid directory
+- Minor Formatting changes
+    - Added padding between widgets
+    - Adjusted the window size
