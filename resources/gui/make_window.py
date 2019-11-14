@@ -4,8 +4,9 @@ import tkinter
 def create():
     window = tkinter.Tk()
     window.title('File Sync Setup')
+    window.iconbitmap('resources/assets/file_sync.ico')
     window_height = 275
-    window_width = 400
+    window_width = 375
     screen_width = window.winfo_screenwidth()
     screen_height = window.winfo_screenheight()
     x_coordinate = int((screen_width / 2) - (window_width / 2))
