@@ -24,7 +24,7 @@ def start(config):
             except PermissionError:
                 client_logger.error('Cannot copy files to the specified location')
             except Exception:
-                client_logger.exception('An unhandled exception occurred. Please send server.log to the developer')
+                client_logger.exception('An unhandled exception occurred. Please send client.log to the developer')
                 exit()
             finally:
                 s.close()

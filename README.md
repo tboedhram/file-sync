@@ -1,6 +1,6 @@
 # File Sync Application
 Developed By: TyReesh Boedhram  
-Current Version: 2.3
+Current Version: 2.4
 
 ## Overview
 This application automatically syncs files between a server computer and client computers on the same network.
@@ -11,8 +11,8 @@ You must have python 3.7+ installed to run this application.
 To run this application, double click on main.pyw
 
 ## Configuration
-The configuration setup runs the first time the application is run, or if the config.txt file gets deleted. The
-configuration setup allows modifications to the following settings.
+The configuration setup runs the first time the application is run, or if the config.txt file gets deleted.  
+The configuration setup allows modifications to the following settings.
 
 **Mode:** This configuration tell the application to run in either server mode or client mode.
 

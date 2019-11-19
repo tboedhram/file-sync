@@ -84,3 +84,8 @@ Version 2.2
 Version 2.3
 - Added icon for the config setup
 - Adjusted window size
+
+Version 2.4
+- Fixed bug where a command windows would briefly appear when the client checks the current SSID
+- Fixed typo in an error message
+- Minor README changes
