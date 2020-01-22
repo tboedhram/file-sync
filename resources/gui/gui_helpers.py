@@ -13,3 +13,9 @@ def create():
     y_coordinate = int((screen_height / 2) - (window_height / 2))
     window.geometry("{}x{}+{}+{}".format(window_width, window_height, x_coordinate, y_coordinate))
     return window
+
+
+def create_error_message(frame, message):
+    error_label = tkinter.Label(frame, text=message, fg='red')
+    error_label.pack()
+    return

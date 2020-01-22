@@ -89,3 +89,6 @@ Version 2.4
 - Fixed bug where a command windows would briefly appear when the client checks the current SSID
 - Fixed typo in an error message
 - Minor README changes
+
+Version 2.5
+- Created gui_helpers.py to handle the creation of commonly used widgets

@@ -2,13 +2,7 @@ import os
 import tkinter
 import tkinter.scrolledtext
 
-import resources.gui.make_window as make_window
-
-
-def create_error_message(frame, message):
-    error_label = tkinter.Label(frame, text=message, fg='red')
-    error_label.pack()
-    return
+import resources.gui.gui_helpers as gui_helpers
 
 
 def validate_ip_address(ip_address):
@@ -33,27 +27,26 @@ def save_config(window, mode, server_ip, ssid, root_location, ignore_files_input
     error_messages.update()
     ignore_files = ignore_files_input.get(1.0, tkinter.END).replace('\n', '||')
     if server_ip == '':
-        create_error_message(error_messages, 'Server IP Address is a required field.')
+        gui_helpers.create_error_message(error_messages, 'Server IP Address is a required field.')
     elif not validate_ip_address(server_ip):
-        create_error_message(error_messages, 'Invalid Server IP Address.')
+        gui_helpers.create_error_message(error_messages, 'Invalid Server IP Address.')
     if root_location == '':
-        create_error_message(error_messages, 'Root Location is a required field.')
+        gui_helpers.create_error_message(error_messages, 'Root Location is a required field.')
     elif not os.path.isdir(root_location):
-        create_error_message(error_messages, 'Root Location is not a valid directory.')
+        gui_helpers.create_error_message(error_messages, 'Root Location is not a valid directory.')
     if len(error_messages.winfo_children()) == 0:
         with open('config.txt', 'w', encoding='utf-8') as config:
-            config.write('mode={}\n'.format(mode))
-            config.write('server_ip={}\n'.format(server_ip))
-            config.write('server_network_ssid={}\n'.format(ssid))
-            config.write('root_location={}\n'.format(root_location))
-            config.write('ignore_files={}\n'.format(ignore_files))
+            config.write('mode={mode}\nserver_ip={server_ip}\nserver_network_ssid={ssid}\nroot_location={root_location}'
+                         '\nignore_files={ignore_files}\n'.format(mode=mode, server_ip=server_ip, ssid=ssid,
+                                                                  root_location=root_location,
+                                                                  ignore_files=ignore_files))
         config.close()
         window.destroy()
 
 
 def gui():
     #  Window Setup
-    window = make_window.create()
+    window = gui_helpers.create()
 
     #  Variables
     mode = tkinter.StringVar(value='server')
