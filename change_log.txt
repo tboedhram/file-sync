@@ -92,3 +92,11 @@ Version 2.4
 
 Version 2.5
 - Created gui_helpers.py to handle the creation of commonly used widgets
+
+Version 3.0 - File Direction Update
+- You can now configure the direction the files will sync
+    - Options are from the view point of the server
+    - Options: Send, Receive, Bidirectional
+- File direction on the client side is now set by the server
+- Ignore Files configuration now affects the client
+-
