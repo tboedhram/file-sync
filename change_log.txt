@@ -99,4 +99,4 @@ Version 3.0 - File Direction Update
     - Options: Send, Receive, Bidirectional
 - File direction on the client side is now set by the server
 - Ignore Files configuration now affects the client
--
+- Added File Mode to GUI
