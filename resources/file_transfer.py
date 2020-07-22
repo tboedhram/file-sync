@@ -19,9 +19,8 @@ def get_files_to_send(root_location, prefix, ignored_files, logger):
     return files_to_send
 
 
-def send_file(socket, root_location, ignored_files_string, logger):
+def send_file(socket, root_location, ignored_files, logger):
     socket.settimeout(None)
-    ignored_files = ignored_files_string.split('||')
     files_to_send = get_files_to_send(root_location, '', ignored_files, logger)
     logger.info('Found {number_of_files} files to sync'.format(number_of_files=str(len(files_to_send))))
     for file in files_to_send:

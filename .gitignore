@@ -1,6 +1,6 @@
 *.pyc
 
-config.txt
+config.json
 
 .idea
 logs
