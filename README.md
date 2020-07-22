@@ -1,6 +1,6 @@
 # File Sync Application
 Developed By: TyReesh Boedhram  
-Current Version: 2.5
+Current Version: 3.0
 
 ## Overview
 This application automatically syncs files between a server computer and client computers on the same network.
@@ -15,6 +15,11 @@ The configuration setup runs the first time the application is run, or if the co
 The configuration setup allows modifications to the following settings.
 
 **Mode:** This configuration tell the application to run in either server mode or client mode.
+
+**File Transfer Mode:** This configuration tells the application which direction to sync files.  
+Options are Send, Receive, and Bidirectional.  
+*This configuration only applies in Server mode*  
+*The Server will tell the Client which mode to be in.*
 
 **Server IP:** This configuration is the local IP address of the server computer.
 

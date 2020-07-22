@@ -16,12 +16,24 @@ def start(config):
         client, address = s.accept()
         server_logger.info('Client Connected\tIP: {address}'.format(address=str(address[0])))
         try:
-            file_transfer.send_file(client, config['root_location'], config['ignore_files'], server_logger)
-            server_logger.info('All files copied to client successfully!')
+            # This if block sets the clients file transfer mode to the appropriate state
+            if config['file_transfer_mode'] == 'send':
+                client.send('receive'.encode('utf-8'))
+            elif config['file_transfer_mode'] == 'receive':
+                client.send('send'.encode('utf-8'))
+            elif config['file_transfer_mode'] == 'bidirectional':
+                client.send('bidirectional'.encode('utf-8'))
+            if config['file_transfer_mode'] == 'send' or config['file_transfer_mode'] == 'bidirectional':
+                file_transfer.send_file(client, config['root_location'], config['ignore_files'], server_logger)
+                server_logger.info('All files copied to client successfully!')
+            if config['file_transfer_mode'] == 'receive' or config['file_transfer_mode'] == 'bidirectional':
+                file_transfer.receive_file(client, config['root_location'], server_logger)
         except ConnectionAbortedError:
             server_logger.warning('Client {address} disconnected unexpectedly'.format(address=str(address[0])))
         except ConnectionResetError:
             server_logger.warning('Client {address} disconnected unexpectedly'.format(address=str(address[0])))
+        except PermissionError:
+            server_logger.error('Cannot copy files to the specified location')
         except Exception:
             server_logger.exception('An unhandled exception occurred. Please send server.log to the developer')
             exit()

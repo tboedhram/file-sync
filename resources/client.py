@@ -16,7 +16,13 @@ def start(config):
             try:
                 s.connect(server)
                 client_logger.info('Connected to File Sync Server')
-                file_transfer.receive_file(s, config['root_location'], client_logger)
+                config['file_transfer_mode'] = s.recv(1024).decode('utf-8')
+                client_logger.info('File Transfer Mode set to {fmode}'.format(fmode=config['file_transfer_mode']))
+                if config['file_transfer_mode'] == 'receive' or config['file_transfer_mode'] == 'bidirectional':
+                    file_transfer.receive_file(s, config['root_location'], client_logger)
+                if config['file_transfer_mode'] == 'send' or config['file_transfer_mode'] == 'bidirectional':
+                    file_transfer.send_file(s, config['root_location'], config['ignore_files'], client_logger)
+                    client_logger.info('All files copied to server successfully!')
             except TimeoutError:
                 client_logger.warning('Connection to File Sync Server Timed Out')
             except ConnectionRefusedError:
