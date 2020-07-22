@@ -1,10 +1,17 @@
 import requests
 
+from zipfile import ZipFile
+
 import resources.gui.updater_gui as updater_ui
 
 
 def update():
-    pass
+    with open('new_version.zip', 'wb') as new_version:
+        request = requests.get('https://github.com/tboedhram/file-sync/zipball/master')
+        new_version.write(request.content)
+        new_version.close()
+    with ZipFile('new_version.zip', 'r') as new_version_zip:
+        new_version_zip.extractall()
 
 
 def check_for_updates():
