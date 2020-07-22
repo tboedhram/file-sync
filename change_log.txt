@@ -100,3 +100,6 @@ Version 3.0 - File Direction Update
 - File direction on the client side is now set by the server
 - Ignore Files configuration now affects the client
 - Added File Mode to GUI
+
+Version 3.1
+- Changed config.txt to config.json

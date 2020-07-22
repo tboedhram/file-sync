@@ -1,3 +1,4 @@
+import json
 import os
 import tkinter
 import tkinter.scrolledtext
@@ -25,7 +26,7 @@ def save_config(window, mode, file_mode, server_ip, ssid, root_location, ignore_
     for child in error_messages.winfo_children():
         child.destroy()
     error_messages.update()
-    ignore_files = ignore_files_input.get(1.0, tkinter.END).replace('\n', '||')
+    ignore_files = ignore_files_input.get(1.0, tkinter.END).split('\n')
     if server_ip == '':
         gui_helpers.create_error_message(error_messages, 'Server IP Address is a required field.')
     elif not validate_ip_address(server_ip):
@@ -35,13 +36,10 @@ def save_config(window, mode, file_mode, server_ip, ssid, root_location, ignore_
     elif not os.path.isdir(root_location):
         gui_helpers.create_error_message(error_messages, 'Root Location is not a valid directory.')
     if len(error_messages.winfo_children()) == 0:
-        with open('config.txt', 'w', encoding='utf-8') as config:
-            config.write('mode={mode}\nfile_transfer_mode={file_mode}\nserver_ip={server_ip}'
-                         '\nserver_network_ssid={ssid}\nroot_location={root_location}'
-                         '\nignore_files={ignore_files}\n'.format(mode=mode, file_mode=file_mode, server_ip=server_ip,
-                                                                  ssid=ssid, root_location=root_location,
-                                                                  ignore_files=ignore_files))
-        config.close()
+        config_data = {'mode': mode, 'file_transfer_mode': file_mode, 'server_ip': server_ip, 'server_network_ssid': ssid, 'root_location': root_location, 'ignore_files': ignore_files}
+        with open('config.json', 'w', encoding='utf-8') as config_file:
+            json.dump(config_data, config_file)
+        config_file.close()
         window.destroy()
 
 
