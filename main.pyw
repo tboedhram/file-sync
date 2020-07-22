@@ -2,6 +2,7 @@ import json
 
 from resources import client as client
 from resources import server as server
+from resources import updater as updater
 from resources.gui import config as config_ui
 
 
@@ -12,6 +13,7 @@ def load_config():
 
 
 def main():
+    updater.check_for_updates()
     try:
         config = load_config()
     except FileNotFoundError:
