@@ -48,7 +48,7 @@ def save_config(window, version, mode, file_mode, server_ip, ssid, root_location
 
 def gui(version, config):
     #  Window Setup
-    window = gui_helpers.create('Setup')
+    window = gui_helpers.create('Setup', 375, 375)
 
     #  Variables
     mode = tkinter.StringVar(value='server')

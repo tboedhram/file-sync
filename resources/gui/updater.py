@@ -1,3 +1,4 @@
+import sys
 import tkinter
 
 from resources import updater as updater
@@ -15,7 +16,7 @@ def cancel(window):
 
 def gui(current_version, new_version):
     #  Window Setup
-    window = gui_helpers.create('Updater')
+    window = gui_helpers.create('Updater', 125, 375)
 
     text = tkinter.Label(text='There is an update available!')
     text.pack()
@@ -31,9 +32,21 @@ def gui(current_version, new_version):
     widget_frame.pack()
 
     update_button = tkinter.Button(widget_frame, text='Update', command=lambda: update(window))
-    update_button.grid(row=0, column=0, padx=(5, 5))
+    update_button.grid(row=0, column=0, padx=5, pady=20)
 
     update_button = tkinter.Button(widget_frame, text='Cancel', command=lambda: cancel(window))
-    update_button.grid(row=0, column=1, padx=(5, 5))
+    update_button.grid(row=0, column=1, padx=5, pady=20)
+
+    window.mainloop()
+
+
+def finished_gui():
+    window = gui_helpers.create('Finished Update', 75, 325)
+
+    text = tkinter.Label(window, text='The update has finished\nPlease restart the application')
+    text.pack()
+
+    ok_button = tkinter.Button(window, text='OK', command=lambda: sys.exit(0))
+    ok_button.pack()
 
     window.mainloop()

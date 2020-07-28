@@ -5,6 +5,7 @@ import shutil
 from zipfile import ZipFile
 
 from resources.gui.updater import gui as updater_gui
+from resources.gui.updater import finished_gui as finished_gui
 
 
 def get_version():
@@ -42,11 +43,12 @@ def update():
         new_version_zip.close()
     move_files(directory, '')
     clean_up()
+    finished_gui()
 
 
 def check_for_updates(auto_update):
     current_version = get_version()
-    request = requests.get('https://raw.github.com/tboedhram/file-sync/v4.0-auto-updater/version.info')
+    request = requests.get('https://raw.github.com/tboedhram/file-sync/v4.0-auto-updater/version')
     github_version = request.text
     if current_version != github_version:
         if auto_update:
