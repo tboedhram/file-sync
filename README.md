@@ -1,6 +1,6 @@
 # File Sync Application
 Developed By: TyReesh Boedhram  
-Current Version: 3.1
+Current Version: 3.2
 
 ## Overview
 This application automatically syncs files between a server computer and client computers on the same network.
@@ -31,11 +31,11 @@ This forces the client to check if they are on the same network as the server be
 *This configuration is only enforced on Windows currently.*
 
 **Root Location:** This configuration tells the application which directory to start in.  
-In server mode, this is the location to copy files from.  
-In client mode, this is the location to copy files to.  
+In Send mode, this is the location to copy files from.  
+In Receive mode, this is the location to copy files to.  
 
-*Example:* Entering `C:\Users` will copy all files in `C:\Users` folder in server mode, 
-and place files in the `C:\Users` folder in client mode.  
+*Example:* Entering `C:\Users` will copy all files in `C:\Users` folder in Send mode, 
+and place files in the `C:\Users` folder in Receive mode.  
 The root location should be an absolute path *(ie: it starts with a drive letter on Windows and a forward-slash on UNIX)*
 
 **Ignore Files *(Optional)*:** This configuration tells the application to skip over certain files or directories.  
@@ -43,4 +43,4 @@ To specify more than one file/directory, enter each file/directory on a new line
 
 *File paths should be relative to the location specified for Root Location.*  
 *This is labeled as "Files to Ignore" during setup*   
-*This configuration only applies in server mode.*
+*This configuration only applies in Send mode and Bidirectional mode.*
