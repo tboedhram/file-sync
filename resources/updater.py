@@ -4,7 +4,14 @@ import shutil
 
 from zipfile import ZipFile
 
-import resources.gui.updater_gui as updater_gui
+from resources.gui.updater import gui as updater_gui
+
+
+def get_version():
+    with open('version.info', 'r') as version_info:
+        current_version = version_info.read()
+        version_info.close()
+    return current_version
 
 
 def clean_up():
@@ -37,11 +44,12 @@ def update():
     clean_up()
 
 
-def check_for_updates():
-    with open('version.info', 'r') as version_info:
-        current_version = version_info.read()
-        version_info.close()
+def check_for_updates(auto_update):
+    current_version = get_version()
     request = requests.get('https://raw.github.com/tboedhram/file-sync/v4.0-auto-updater/version.info')
     github_version = request.text
     if current_version != github_version:
-        updater_gui.gui(current_version, github_version)
+        if auto_update:
+            update()
+        else:
+            updater_gui(current_version, github_version)

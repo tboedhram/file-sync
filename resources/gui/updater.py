@@ -17,7 +17,7 @@ def gui(current_version, new_version):
     #  Window Setup
     window = gui_helpers.create('Updater')
 
-    text = tkinter.Label(text='There is an update available')
+    text = tkinter.Label(text='There is an update available!')
     text.pack()
 
     current_version_label = tkinter.Label(

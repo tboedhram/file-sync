@@ -5,7 +5,7 @@ def create(title):
     window = tkinter.Tk()
     window.title('File Sync {title}'.format(title=title))
     window.iconbitmap('resources/assets/file_sync.ico')
-    window_height = 275
+    window_height = 375
     window_width = 375
     screen_width = window.winfo_screenwidth()
     screen_height = window.winfo_screenheight()

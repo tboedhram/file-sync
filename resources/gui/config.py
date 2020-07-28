@@ -22,7 +22,8 @@ def validate_ip_address(ip_address):
     return True
 
 
-def save_config(window, mode, file_mode, server_ip, ssid, root_location, ignore_files_input, error_messages):
+def save_config(window, version, mode, file_mode, server_ip, ssid, root_location, ignore_files_input, check_update,
+                auto_update, error_messages):
     for child in error_messages.winfo_children():
         child.destroy()
     error_messages.update()
@@ -36,14 +37,16 @@ def save_config(window, mode, file_mode, server_ip, ssid, root_location, ignore_
     elif not os.path.isdir(root_location):
         gui_helpers.create_error_message(error_messages, 'Root Location is not a valid directory.')
     if len(error_messages.winfo_children()) == 0:
-        config_data = {'mode': mode, 'file_transfer_mode': file_mode, 'server_ip': server_ip, 'server_network_ssid': ssid, 'root_location': root_location, 'ignore_files': ignore_files}
+        config_data = {'version': version, 'mode': mode, 'file_transfer_mode': file_mode, 'server_ip': server_ip,
+                       'server_network_ssid': ssid, 'root_location': root_location, 'ignore_files': ignore_files,
+                       'check_update': check_update, 'auto_update': auto_update}
         with open('config.json', 'w', encoding='utf-8') as config_file:
             json.dump(config_data, config_file)
         config_file.close()
         window.destroy()
 
 
-def gui():
+def gui(version, config):
     #  Window Setup
     window = gui_helpers.create('Setup')
 
@@ -53,6 +56,19 @@ def gui():
     server_ip = tkinter.StringVar()
     ssid = tkinter.StringVar()
     root_location = tkinter.StringVar()
+    ignore_files = ''
+    check_update = tkinter.BooleanVar()
+    auto_update = tkinter.BooleanVar()
+
+    if config is not None:
+        mode.set(config['mode'])
+        file_mode.set(config['file_transfer_mode'])
+        server_ip.set(config['server_ip'])
+        ssid.set(config['server_network_ssid'])
+        root_location.set(config['root_location'])
+        ignore_files = '\n'.join(config['ignore_files'])
+        check_update.set(config['check_update'])
+        auto_update.set(config['auto_update'])
 
     #  Widgets
     widget_frame = tkinter.Frame(window)
@@ -110,14 +126,23 @@ def gui():
     ignore_files_label.grid(row=row_index, column=0)
     ignore_files_input = tkinter.scrolledtext.ScrolledText(widget_frame, height=5, width=20, wrap=tkinter.NONE)
     ignore_files_input.grid(row=row_index, column=1, pady=(2, 2))
+    ignore_files_input.insert(tkinter.INSERT, ignore_files)
+
+    check_update_input = tkinter.Checkbutton(window, text="Check for Updates at Launch", variable=check_update,
+                                             onvalue=True, offvalue=False)
+    check_update_input.pack()
+    auto_update_input = tkinter.Checkbutton(window, text="Automatically Install Updates", variable=auto_update,
+                                            onvalue=True, offvalue=False)
+    auto_update_input.pack()
 
     error_message = tkinter.Frame()
     error_message.pack(pady=(2, 2))
 
     finish_button = tkinter.Button(text='Finish Setup',
-                                   command=lambda: save_config(window, mode.get(), file_mode.get(), server_ip.get(),
-                                                               ssid.get(), root_location.get(), ignore_files_input,
-                                                               error_message))
+                                   command=lambda: save_config(window, version, mode.get(), file_mode.get(),
+                                                               server_ip.get(), ssid.get(), root_location.get(),
+                                                               ignore_files_input, check_update.get(),
+                                                               auto_update.get(), error_message))
     finish_button.pack(pady=(5, 5))
 
     window.mainloop()
