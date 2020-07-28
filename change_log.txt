@@ -104,6 +104,9 @@ Version 3.0 - File Direction Update
 Version 3.1
 - Changed config.txt to config.json
 
+Version 3.2
+- Fixed wording in README
+
 Version 4.0
 - TODO: Program now checks for updates at startup
 - TODO: You can update the program when the program starts
