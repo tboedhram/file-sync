@@ -44,3 +44,11 @@ To specify more than one file/directory, enter each file/directory on a new line
 *File paths should be relative to the location specified for Root Location.*  
 *This is labeled as "Files to Ignore" during setup*   
 *This configuration only applies in Send mode and Bidirectional mode.*
+
+**Check for Updates at Launch:** This configuration tells the application whether or not to check
+for updates when the application is starting
+
+**Automatically Install Updates:** This configuration tells the application whether or not to
+automatically install updates
+
+*Check for Updates at Launch must be enables to use the Auto Update feature.*
