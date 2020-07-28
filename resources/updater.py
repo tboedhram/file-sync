@@ -8,7 +8,7 @@ from resources.gui.updater import gui as updater_gui
 
 
 def get_version():
-    with open('version.info', 'r') as version_info:
+    with open('version', 'r') as version_info:
         current_version = version_info.read()
         version_info.close()
     return current_version
