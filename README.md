@@ -51,4 +51,4 @@ for updates when the application is starting
 **Automatically Install Updates:** This configuration tells the application whether or not to
 automatically install updates
 
-*Check for Updates at Launch must be enables to use the Auto Update feature.*
+*Check for Updates at Launch must be enabled to use the Auto Update feature.*

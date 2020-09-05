@@ -48,7 +48,7 @@ def update():
 
 def check_for_updates(auto_update):
     current_version = get_version()
-    request = requests.get('https://raw.github.com/tboedhram/file-sync/v4.0-auto-updater/version')
+    request = requests.get('https://raw.github.com/tboedhram/file-sync/master/version')
     github_version = request.text
     if current_version != github_version:
         if auto_update:

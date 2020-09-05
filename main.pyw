@@ -4,6 +4,7 @@ from resources import client as client
 from resources import server as server
 from resources import updater as updater
 from resources.gui.config import gui as config_gui
+from resources.gui.updater import update_successful_gui
 
 
 def load_config():
@@ -21,6 +22,7 @@ def main():
         config_gui(version, None)
         config = load_config()
     if config['version'] != version:
+        update_successful_gui()
         config_gui(version, config)
         config = load_config()
     if config['check_update']:

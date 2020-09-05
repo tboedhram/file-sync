@@ -50,3 +50,15 @@ def finished_gui():
     ok_button.pack()
 
     window.mainloop()
+
+
+def update_successful_gui():
+    window = gui_helpers.create('Update Successful', 75, 325)
+
+    text = tkinter.Label(window, text='The application has updated successfully\nPlease verify your settings')
+    text.pack()
+
+    ok_button = tkinter.Button(window, text='OK', command=lambda: cancel(window))
+    ok_button.pack()
+
+    window.mainloop()
