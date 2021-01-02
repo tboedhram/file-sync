@@ -1,6 +1,6 @@
 # File Sync Application
 Developed By: TyReesh Boedhram  
-Current Version: 4.0
+Current Version: 4.1
 
 ## Overview
 This application automatically syncs files between a server computer and client computers on the same network.

@@ -3,5 +3,6 @@
 config.json
 
 .idea
+venv
 logs
 test_files

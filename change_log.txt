@@ -113,3 +113,7 @@ Version 4.0 - Auto Updater Update
 - You can configure auto updates
 - Added version file and version field to config.json
 - Configuration window now reappears if config version does not match application version
+
+Version 4.1
+- Added requirements.txt
+- Added venv to .gitignore
